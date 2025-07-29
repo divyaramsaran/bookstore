@@ -12,6 +12,15 @@ def removeInventory (inventory) :
     return None
 
 
+def questionsAndAnswers(inventory,harryWishList, bobWishList):
+    print('Total Unique Books In Wishlists:', len(harryWishList.union(bobWishList)))
+    print('Books In Both Wishlists:', harryWishList.intersection(bobWishList))
+    print('Books In Harry\'s Wishlist But Not In Bob\'s:', harryWishList.difference(bobWishList))
+    print('Books In Bob\'s Wishlist But Not In Harry\'s:', bobWishList.difference(harryWishList))
+    print('Wishlists Combined:', harryWishList | bobWishList)
+    print('Books That No Customer Wished:', set(inventory) - (harryWishList | bobWishList))
+
+
 def main() :
     inventory = ['Harry Potter', 'The Alchemist', 'Atomic Habits', 'Clean Code', 'Python Crash Course']
     harryWishList = {'Harry Potter', 'Deep Work', 'Clean Code'}
@@ -32,6 +41,6 @@ def main() :
             print('Updated Inventory:', inventory)
         case _:
             print('Enter A Valid Option')
-    print('Total Unique Books In Wishlists:', len(harryWishList.union(bobWishList) ))
-    
+    questionsAndAnswers(inventory, harryWishList, bobWishList)
+
 main()
