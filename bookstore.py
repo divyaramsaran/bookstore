@@ -30,17 +30,24 @@ def main() :
     print('Current Inventory:', inventory)
     print('Harry\'s Wishlist:', harryWishList)
     print('Bob\'s Wishlist:', bobWishList)
-    option = int(input('Choose an option: \n1. Add Inventory\n2. Remove Inventory\n3. Exit\n'))
-
-    match option:
-        case 1:
-            inventory = addInventory(inventory)
-            print('Updated Inventory:', inventory)
-        case 2:
-            inventory = removeInventory(inventory)
-            print('Updated Inventory:', inventory)
-        case _:
-            print('Enter A Valid Option')
+    while True:
+        try:
+            option = int(input('Choose an option: \n1. Add Inventory\n2. Remove Inventory\n3. Exit\n'))
+        except ValueError:
+            print('Please enter a valid number.')
+            continue
+        match option:
+            case 1:
+                inventory = addInventory(inventory)
+                print('Updated Inventory:', inventory)
+            case 2:
+                inventory = removeInventory(inventory)
+                print('Updated Inventory:', inventory)
+            case 3:
+                print('Exiting...')
+                break
+            case _:
+                print('Enter A Valid Option')
     questionsAndAnswers(inventory, harryWishList, bobWishList)
 
 main()
