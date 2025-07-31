@@ -18,7 +18,7 @@ def questionsAndAnswers(inventory,harryWishList, bobWishList):
     print('Books In Harry\'s Wishlist But Not In Bob\'s:', harryWishList.difference(bobWishList))
     print('Books In Bob\'s Wishlist But Not In Harry\'s:', bobWishList.difference(harryWishList))
     print('Wishlists Combined:', harryWishList | bobWishList)
-    print('Books That No Customer Wished:', set(inventory) - (harryWishList | bobWishList))
+    print('Books That No Customer Wished:', list(set(inventory) - (harryWishList | bobWishList)))
 
 
 def main() :
